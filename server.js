@@ -8,6 +8,8 @@ var methodOverride = require('method-override')
 // Set up Express
 var app = express();
 
+var db = require("./models");
+
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(process.cwd() + '/public'));
 // app.use(express.static('public'));
@@ -25,7 +27,10 @@ var router = require('./controllers/burgers_controller.js');
 app.use('/', router);
 
 // Open Server
-var port = process.env.PORT || 3000;
-app.listen(port, function(){
-  console.log('Listening on port ' + port);
+var PORT = process.env.PORT || 3000;
+
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+    });
 });

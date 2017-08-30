@@ -1,0 +1,31 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caseyrubel/burger.git"
+  },
+  "author": "casey rubel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caseyrubel/burger/issues"
+  },
+  "homepage": "https://github.com/caseyrubel/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "mysql": "^2.13.0",
+    "mysql2": "^1.4.0",
+    "pg": "7.0.2",
+    "process-env": "^1.1.0",
+    "sequelize": "^4.4.2"
+  }
+}

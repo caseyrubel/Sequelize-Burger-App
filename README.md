@@ -1,1 +1,1 @@
-# Sequelize-Burger-App
+# burger Sequelized

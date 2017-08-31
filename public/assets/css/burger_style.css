@@ -1,4 +1,24 @@
 body {
+    margin: 0;
+    padding: 0;
     text-align: center;
-    background-color: blue;
+    background-color: #000000;
+    height: 800px;
+}
+
+#body {
+    margin: 0;
+    height: 800px;
+    padding: 0;
+    background-color: #F7EA00;
+}
+
+#head {
+    margin-top: 0;
+    padding-top: 20;
+    padding: 0;
+}
+
+#bg {
+    background-color: #A7601A;
 }

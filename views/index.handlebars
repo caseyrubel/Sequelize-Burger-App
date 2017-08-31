@@ -1,37 +1,65 @@
-<h1>EAT DA BURGER</h1>
-<img src="assets/img/burger.png" alt="Smiley face" height="10%" width="10%">
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.burger_name}}
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          
-          <button type="submit">Eat Da Burger</button>
-        </form>
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Devoured Burgers:</h2>
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.burger_name}}
-        {{!-- <form action="/{{this.id}}?_method=DELETE" method="POST">
-          <button type="submit">Get Rid of It!</button>
-        </form>  --}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-<h2>What Burger Do You Want To Devour?</h2>
-<form class="create-update-form" action="/burger/create" method="POST">
-  <div class="form-group">
-    <label for="new_burger">Burger:</label>
-    <input type="text" id="new_burger" name="burger_name">
+<div id="body">
+  <div id="head" class="row">
+    <h1>EAT DA BURGER</h1>
   </div>
-  <button type="submit">Add Burger</button>
-</form>
+  <div id="bg">
+    <img src="assets/img/burger.png" alt="Smiley face" height="10%" width="10%">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="panel panel-danger">
+          <div class="panel-heading">Burgers</div>
+          <div class="panel-body">
+            <ul class="list-group">
+              {{#each burgers}}
+                {{#unless this.devoured}}
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-cutlery"><img src="assets/img/burger.png" alt="Smiley face" height="10%" width="10%"></span>
+                    <h4>{{this.burger_name}}</h4>
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                      
+                      <button class="btn btn-outline-success" type="submit">Eat Da Burger</button>
+                    </form>
+                  </li>
+                {{/unless}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-warning">
+          <div class="panel-heading">Devoured Burgers</div>
+          <div class="panel-body">
+            <ul class="list-group">
+              {{#each burgers}}
+                {{#if this.devoured}}
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-cutlery"><img src="assets/img/burger.png" alt="Smiley face" height="10%" width="10%"></span>
+                    <h4>{{this.burger_name}}</h4>
+                    <form action="/burger/{{this.id}}?_method=PUT" method="POST">
+                      
+                      <button class="btn btn-outline-success" type="submit">Devour Again</button>
+                    </form>
+                  </li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <form class="form-group" action="/burger/create" method="POST">
+          <div class="form-group">
+            <input class="form-control" placeholder="Add a Burger Here" type="text" id="new_burger" name="burger_name">
+          </div>
+          <button class="btn btn-outline-success" type="submit">Add Burger</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

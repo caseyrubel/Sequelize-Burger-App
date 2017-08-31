@@ -48,6 +48,21 @@ router.post('/:id', function(req, res) {
     });
 });
 
+router.post('/burger/:id', function(req, res) {
+    db.Burger.findOne( {where: 
+        {
+            id: req.params.id
+        } 
+    }).then(function(burger){
+        // ... Update the burger's status to devoured
+        burger.update({
+            devoured: false,
+        }).then(function(){
+            res.redirect('/index');
+        });
+    });
+});
+
 router.delete("/:id", function(req, res) {
     db.Burger.destroy( {where: {
                 id: req.params.id
